@@ -1,0 +1,28 @@
+{% extends 'base.njk' %}
+{% block content %}
+<div class="container">
+
+<div class="row">
+
+
+	<div class="col-md-6 col-md-offset-3 well">
+		<h1 class="text-center">Login</h1>
+		<form action="/login" method="post">
+			<div class="form-group">
+				<label class="text-center">Username</label>
+				<input type="text" name="username" class="form-control">
+			</div>
+			<div>
+				<label class="text-center">Password</label>
+				<input type="password" name="password" class="form-control mb60">
+			</div>
+			<div>
+				<input type="submit" value="Submit" class="form-control">
+			</div>
+		</form>
+	</div>
+	</div>
+</div>
+{% endblock %}
+{%block scripts%}
+{% endblock %}

@@ -1,0 +1,47 @@
+{
+    "compress": {
+      "ascii_only": false,
+      "beautify": false,
+      "bracketize": false,
+      "comments": false,
+      "indent_level": 4,
+      "indent_start": 0,
+      "inline_script": true,
+      "keep_quoted_props": false,
+      "max_line_len": false,
+      "preamble": null,
+      "preserve_line": false,
+      "quote_keys": false,
+      "quote_style": 0,
+      "semicolons": true,
+      "shebang": true
+    },
+    "mangle": {
+
+        "properties": {
+
+        }
+    },
+    "output": {
+      ascii_only       : false,
+      beautify         : false,
+      bracketize       : false,
+      comments         : false,
+      ie8              : false,
+      indent_level     : 4,
+      indent_start     : 0,
+      inline_script    : true,
+      keep_quoted_props: false,
+      max_line_len     : false,
+      preamble         : null,
+      preserve_line    : false,
+      quote_keys       : false,
+      quote_style      : 0,
+      semicolons       : true,
+      shebang          : true,
+      source_map       : null,
+      webkit           : false,
+      width            : 80,
+      wrap_iife : false,
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "delay": 5000,
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "admin/public/data/"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node",
+	"start": "node ./admin/app/bin/socketIO"
+  },
+  "watch": [
+	"admin/"
+  ],
+  "ext": "js, json, html, css, njk"
+}

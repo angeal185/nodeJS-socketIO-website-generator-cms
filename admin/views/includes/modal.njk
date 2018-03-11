@@ -1,0 +1,13 @@
+{% for i in config.modals %}
+<div class="modal fade small-modal" id="{{i.divId}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-body">{{i.dialogue}}</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel & Close</button>
+            <button type="button" type="button" class="btn btn-default" id="{{i.btnId}}">{{i.btnLbl}}</button>
+          </div>
+      </div>
+    </div>
+</div>
+{% endfor %}

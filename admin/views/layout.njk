@@ -1,0 +1,128 @@
+{% import "macros/macros.njk" as macro %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <title>{{title}}</title>
+      {{macro.css(s="bootstrap.min")}}
+
+
+      {{macro.css(s="spectrum")}}
+      {{macro.css(s="chosen")}}
+      {{macro.css(s="fonts")}}
+      {{macro.cssT(s="js/redactor/redactor.css")}}
+      {{macro.css(s="shared")}}
+      {{macro.css(s="style")}}
+      <style>
+
+      </style>
+      {% block styles %}{% endblock %}
+    </head>
+    <body class="fadeIn">
+    {% block content %}{% endblock %}
+    {{macro.toTop()}}
+    {% include "includes/loader.njk" %}
+    {{macro.js(s="jquery.min")}}
+    {{macro.js(s="jquery-ui.min")}}
+    {{macro.js(s="jquery.ui.touch-punch.min")}}
+    {{macro.js(s="bootstrap.min")}}
+    {{macro.js(s="sound")}}
+    {{macro.js(s="audio")}}
+    {{macro.js(s="bootstrap-select")}}
+    {{macro.js(s="bootstrap-switch")}}
+
+    {{macro.js(s="flatui-radio")}}
+    {{macro.js(s="jquery.tagsinput")}}
+    {{macro.js(s="flatui-fileinput")}}
+    {{macro.js(s="jquery.placeholder")}}
+    {{macro.js(s="jquery.zoomer")}}
+    {{macro.js(s="application")}}
+    {{macro.js(s="spectrum")}}
+    {{macro.js(s="chosen.jquery.min")}}
+    {{macro.js(s="ckeditor")}}
+    {{macro.js(s="redactor/redactor")}}
+    {{macro.js(s="redactor/table")}}
+    {{macro.js(s="redactor/bufferButtons")}}
+    {{macro.js(s="src-min-noconflict/ace")}}
+    {{macro.jsT(s="/siofu/client")}}
+    {{macro.jsT(s="/socket.io/socket.io")}}
+    {{macro.js(s="shared")}}
+    {{macro.js(s="builder")}}
+    <script>
+
+showtoast('loading');
+var audioPath = "audio/";
+var sounds = [
+    {id:"Music", src:"init.mp3"}
+];
+
+function init() {
+    // if initializeDefaultPlugins returns false, we cannot play sound in this browser
+    if (!createjs.Sound.initializeDefaultPlugins()) {return;}
+    createjs.Sound.alternateExtensions = ["mp3"];
+    createjs.Sound.addEventListener("fileload", handleLoad);
+    createjs.Sound.registerSounds(sounds, audioPath);
+}
+
+function handleLoad(event) {
+    createjs.Sound.play(event.src);
+}
+init();
+
+
+
+
+
+
+//handleLoad(sounds);
+
+
+    $(function(){
+    	var ua = window.navigator.userAgent;
+   		var msie = ua.indexOf("MSIE ");
+    	/*if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+    		$('.modes #modeContent').parent().hide();
+    	} else {
+    		$('.modes #modeContent').parent().show();
+    	}*/});
+
+
+
+      var scrolling = null;
+
+     function scroll_up() {
+         var d = document.getElementById('main');
+
+         d.scrollTop = d.scrollTop - 5;
+
+         scrolling = window.setTimeout(function() {
+             scroll_up();
+         }, 25);
+     }
+
+     function scroll_down() {
+         var d = document.getElementById('main');
+
+         d.scrollTop = d.scrollTop + 5;
+
+         scrolling = window.setTimeout(function() {
+             scroll_down();
+         }, 25);
+     }
+
+     function stop_scroll() {
+         window.clearTimeout(scrolling);
+       }
+
+
+       {% if config.app.audio %}
+         $('#menu').hover(function () {
+           createjs.Sound.play("hover");
+         });
+       {% endif %}
+    </script>
+      {%block scripts%}{% endblock %}
+  </body>
+</html>

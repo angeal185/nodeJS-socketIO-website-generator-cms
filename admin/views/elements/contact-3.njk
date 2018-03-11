@@ -1,0 +1,41 @@
+{% extends 'skeleton.njk' %}
+{% block content %}
+	<div class="contact-1 contact-3">
+		<div class="container">
+			<div class="col-md-6 left">
+				<h2>Drop Us A Line</h2>
+				<form class="form-inline" id="contact-form" action="javascript:alert('Was send!');">
+					<span class="txt">Your Name</span>
+					<input type="text" id="contact_name" required placeholder="Your Name" />
+					<span class="txt">Your Email</span>
+					<input type="text" id="contact_email" required placeholder="Your Email" />
+					<span class="txt">Subject</span>
+					<input type="text" id="contact_subject" required placeholder="Your Subject" />
+					<span class="txt">Message</span>
+					<textarea id="contact_message" required rows="4" ></textarea>
+					<button href="#" type="submit" value="Send Message" onclick="ajax()" class="snd-btn">SEND</button>
+					 <p id="p1"></p>
+				</form>
+			</div>
+
+			<div class="col-md-6 right">
+				<h2>About Us</h2>
+				<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+				<address>
+				  <strong>MegaBlocks, Inc.</strong><br>
+				  1355 Market Street, Suite 900<br>
+				  San Francisco, CA 94103<br>
+				  <abbr title="email">Email:</abbr> email@yourdomain.com<br>
+				  <abbr title="Phone">Phone:</abbr> (123) 456-7890<br>
+				  <abbr title="Fax">Fax:</abbr> +99 (0) 800 0000 008
+				</address>
+				<ul class="f-socials">
+					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fa fa-skype"></i></a></li>
+					<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+{% endblock %}

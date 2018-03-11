@@ -1,0 +1,74 @@
+{% extends 'layout.njk' %}
+{% block content %}
+<div class="container mt100">
+    <h1 class="center">{{title}}</h1>
+    
+	  <div class="row">
+		<div class="col s12 m6">
+		  <h3>{{title|capitalize}} Items</h3>
+		  <form role="form" way-data="options">
+			
+			<div class="form-group">
+			  
+				<div class="item-entry">
+				  <h5>Item</h5>
+				  <label>color</label>
+				  <input type="text" class="form-control" placeholder="color"  way-data="options.color">
+				  <label>background</label>
+				  <input type="text" class="form-control" placeholder="background"  way-data="options.background">
+				  <label>damp</label>
+				  <input type="text" class="form-control" placeholder="damp"  way-data="options.damp">
+				  <label>accel</label>
+				  <input type="text" class="form-control" placeholder="accel"  way-data="options.accel">
+				  <label>attractors</label>
+				  <input type="text" class="form-control" placeholder="attractors"  way-data="options.attractors">
+				  <label>particles</label>
+				  <input type="text" class="form-control" placeholder="particles"  way-data="options.particles">
+				  <label>currentSlide</label>
+				  <input type="text" class="form-control" placeholder="currentSlide"  way-data="options.currentSlide">
+				  <label>flickrTime</label>
+				  <input type="text" class="form-control" placeholder="flickrTime"  way-data="options.flickrTime">
+				</div>
+			</div>
+			
+			<h3>Social Share Items</h3>  
+			  <div class="form-group" way-repeat="options.socialShare">
+				<div class="item-entry">
+				  <h5>Item</h5>
+
+				  <label>currentSlide</label>
+				  <input type="text" class="form-control" placeholder="currentSlide"  way-data="class">
+				  <label>flickrTime</label>
+				  <input type="text" class="form-control" placeholder="flickrTime"  way-data="href">
+				</div>
+				<a href="#" way-action-remove="options.socialShare.$$key">Remove</a>
+			  </div>
+			  
+			
+			
+			<div class="form-group">
+				<button class="btn btn-default {{config.theme.main}}" way-action-push="options.socialShare">Add item</button>
+			</div>
+			
+		  </form>
+		</div>
+
+		{% include 'includes/output.njk' %}
+	
+</div>
+
+
+
+</div>
+{% endblock %}
+{%block scripts%}
+<script>
+    way.set("options", {{data.options|dump|safe}});
+
+
+function clonsoleLog(){
+  var logit = document.getElementById('toSave').value;
+  console.log(logit)
+}
+</script>
+{% endblock %}

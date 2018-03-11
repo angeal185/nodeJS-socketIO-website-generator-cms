@@ -1,0 +1,80 @@
+<div id="styleEditor" class="styleEditor">
+  <a href="#" class="close"><span class="fa fa-times"></span></a>
+<h3>Detail Editor</h3>
+
+<ul class="breadcrumb">
+    <li>Editing:</li>
+  <li class="active" id="editingElement">p</li>
+</ul>
+
+<ul class="nav nav-tabs" id="detailTabs">
+  {% for i in config.styleLnk %}
+    <li><a href="#{{i.href}}" id="{{i.id}}">{{i.name}}</a></li>
+  {% endfor %}
+</ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <form role="form" id="stylingForm">
+        <div id="styleElements">
+            <div class="form-group clearfix" id="styleElTemplate">
+              <label class="control-label"></label>
+                <input type="text" class="form-control input-sm">
+            </div>
+          </div>
+      </form>
+    </div>
+
+    <div class="tab-pane link_Tab" id="link_Tab">
+        <select id="internalLinksDropdown">
+          <option value="#">Choose a page</option>
+          <option value="index.html">index</option>
+        </select>
+        {{macro.or()}}
+        <select id="pageLinksDropdown">
+          <option value="#">Choose a block (one page sites)</option>
+        </select>
+        {{macro.or()}}
+        <input type="text" class="form-control" id="internalLinksCustom" placeholder="http://">
+    </div>
+
+    <div class="tab-pane imageFileTab" id="image_Tab">
+        <label>Enter image path:</label>
+        <input type="text" class="form-control" id="imageURL" placeholder="Enter an image URL">
+    </div>
+
+    <div class="tab-pane iconTab" id="icon_Tab">
+      <label>Choose an icon below: </label>
+      <select id="icons" data-placeholder="Your Favorite Types of Bear">
+        {% for i in icons %}
+        <option value="{{i.icon}}">{{i.name}}</option>
+        {% endfor %}
+      </select>
+
+    </div>
+
+
+    <div class="tab-pane videoTab" id="video_Tab">
+      {{macro.video(i="youtube")}}
+      {{macro.or()}}
+      {{macro.video(i="vimeo")}}
+    </div>
+
+  </div>
+
+  <div class="alert alert-success" id="detailsAppliedMessage">
+    <button class="close fa fa-times" type="button" id="detailsAppliedMessageHide"></button>
+    changes done
+  </div>
+
+  <div class="margin-bottom-5">
+    <button type="button" class="btn btn-default btn-sm btn-block" id="saveStyling">Apply Changes</button>
+  </div>
+
+  <div class="sideButtons clearfix">
+    {% for i in config.sideButtons %}
+      <button type="button" class="btn btn-default btn-xs" id="{{i.id}}">{{i.name}}</button>
+    {% endfor %}
+  </div>
+
+</div>

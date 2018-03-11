@@ -1,0 +1,25 @@
+{% import "macros/macros.njk" as macro %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    {{macro.css(s="bootstrap.min")}}
+    {{macro.css(s="admin")}}
+
+    <style>
+
+    </style>
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+
+    {{macro.js(s="jquery.min")}}
+    {{macro.js(s="bootstrap.min")}}
+    {{macro.js(s="sound")}}
+    {{macro.js(s="audio")}}
+    {%block scripts%}{% endblock %}
+  </body>
+</html>

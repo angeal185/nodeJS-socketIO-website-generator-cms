@@ -1,0 +1,62 @@
+{% extends 'layout.njk' %}
+{% block content %}
+  {% set comma = joiner() %}
+  {% include "includes/menu.njk" %}
+  {% include "includes/head.njk" %}
+  {% include "includes/styleEditor.njk" %}
+
+
+
+  <div id="hidden">
+    <iframe src="{{config.skeleton}}" id="skeleton"></iframe>
+  </div>
+
+{% include "includes/export.njk" %}
+{% include "includes/modal.njk" %}
+{% include "includes/deleteElement.njk" %}
+{% include "includes/editContent.njk" %}
+
+<form action="/preview" target="_blank" id="toPreviewForm" method="post" role="form">
+  <input type="hidden" name="toPreview" id="toPreview">
+</form>
+
+<div class="sandboxes" id="sandboxes"></div>
+{% endblock %}
+{%block scripts%}
+<script>
+
+var socket = io.connect();
+$(".extOptions").click(function() {
+  $("#extention").val(this.innerHTML);
+  if ((this.innerHTML) === (".pug")){
+    $("#output").val("none");
+    $(".outputDiv").addClass('hidden');
+  } else {
+    $(".outputDiv").removeClass('hidden');
+  }
+});
+
+$(".outputOptions").click(function() {
+  $("#output").val(this.innerHTML);
+
+});
+
+$("#exportSubmit").click(function() {
+  //console.log($("#markupForm > input").val());
+  let fileType = $("#extention").val();
+  let fileName = $("#docName").val();
+  let toSave = $("#markupForm > input").val();
+  let output = $("#output").val();
+  socket.emit('exportHtml', {"toSave":toSave,"fileType":fileType,"fileName":fileName,"output":output});
+  return false;
+});
+
+$("#toPreviewBtn").click(function() {
+
+  $("#toPreview").val($("#markupForm > input").val());
+  console.log($("#toPreview").val());
+  $("#toPreviewForm").submit();
+});
+
+</script>
+{% endblock %}

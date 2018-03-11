@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand blink">Admin</a>
+    </div>
+      <ul class="nav navbar-nav pull-right">
+        {% for i in config.adminNav %}
+          <li><a class="blink" href="/admin/{{i}}">{{i|capitalize}}</a></li>
+        {% endfor %}
+        <li><a class="blink" href="/">Builder</a></li>
+        {% if config.app.login %}
+        <li><a class="blink" href="/logout">Logout</a></li>
+        {% endif %}
+      </ul>
+  </div>
+</nav>

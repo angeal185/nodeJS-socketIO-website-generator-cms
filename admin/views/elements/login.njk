@@ -1,0 +1,26 @@
+{% extends 'skeleton.njk' %}
+{% block content %}
+<div class="login">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="login-wrap">
+				<div class="heading">LOGIN</div>
+				<div class="input-group">
+				  <span class="input-group-addon">
+					Username
+				  </span>
+				  <input type="text" class="form-control" aria-label="...">
+				</div>
+				<div class="input-group">
+				  <span class="input-group-addon">
+					Password
+				  </span>
+				  <input type="password" class="form-control" aria-label="...">
+				</div>
+				<button type="button" class="btn btn-primary">Login To Your Account</button>
+				<div class="recover">Recover Your <a href="#">Password</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

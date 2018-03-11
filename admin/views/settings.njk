@@ -1,0 +1,207 @@
+{% extends 'admin.njk' %}
+{% block content %}
+  <div class="container mt100">
+    <h1 class="text-center">{{title}}</h1>
+
+    <div class="row">
+      <div class="col s12 m6">
+        <form role="form">
+
+          <div class="form-group">
+
+            <div class="row">
+              <h3 class="text-center">App</h3>
+              <div class="col-sm-6">
+                <div class="well">
+
+                  <label for="aceThemeSelect">Ace theme</label>
+                  <select class="selectpicker" name="aceThemeSelect" data-width="100%">
+                    {% for i in config.aceThemes %}
+                      <option>{{i}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="well">
+                  <label for="aceTheme">Current Theme</label>
+                  <input id="aceTheme" name="" class="form-control" type="text" value="">
+                </div>
+              </div>
+            </div>
+
+              <button id="appUpdate" class="btn btn-block btn-darker">Update</button>
+
+              <div class="row">
+              <h3 class="text-center">Admin</h3>
+              {% if config.app.help %}
+              <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <strong>Warning!</strong><span class="pull-right">
+                Changes made here will take effect upon server restart.</span>
+              </div>
+              {% endif %}
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>Port</label>
+                  <input id="port" class="form-control" type="text" value="{{config.app.port}}">
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>Uploads</label>
+                  <input id="uploads" class="form-control" type="text" value="{{config.app.uploads}}">
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>Exports</label>
+                  <input id="exportTo" class="form-control" type="text" value="{{config.app.exportTo}}">
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>debug toolbar<span class="to-right">toggle</span></label>
+                  <input id="debug" class="form-control" type="text" value="{{config.app.debugToolbar}}" readonly>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>Help<span class="to-right">toggle</span></label>
+                  <input id="help" class="form-control" type="text" value="{{config.app.help}}" readonly>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>Audio<span class="to-right">toggle</span></label>
+                  <input id="audio" class="form-control" type="text" value="{{config.app.audio}}" readonly>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>Login<span class="to-right">toggle</span></label>
+                  <input id="login" class="form-control" type="text" value="{{config.app.login}}" readonly>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="well">
+                  <label>Minify output<span class="to-right">toggle</span></label>
+                  <input id="minifyOutput" class="form-control" type="text" value="{{config.app.minifyOutput}}" readonly>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <button id="adminUpdate" class="btn btn-block btn-darker">Update</button>
+
+            <div class="row">
+              <h3 class="text-center">Password</h3>
+              <div class="col-sm-6">
+                  <div class="well">
+                    <label>Current Password hash</label>
+                    <input class="form-control" type="text" value="{{user.password}}" readonly>
+                  </div>
+              </div>
+              <div class="col-sm-6">
+                  <div class="well">
+                    <label>Change Password</label>
+                    <input id="password" class="form-control" type="text">
+                  </div>
+              </div>
+            </div>
+            <button id="passwordUpdate" class="btn btn-block btn-darker">Update</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  {% endblock %}
+  {%block scripts%}
+    <script>
+
+      $('.selectpicker').selectpicker({style: 'btn-dark btn-block', size: 4});
+
+      $.getJSON('/data/elements.json', function (data) {
+        $("#aceTheme").val(data.options.aceTheme);
+      });
+
+      //var socket = io();
+
+      $('#passwordUpdate').click(function (event) {
+        var password = $('#password').val();
+        //console.log(password);
+        socket.emit('changePassword', {"password": password});
+        return false;
+
+      });
+
+      $('#appUpdate').click(function (event) {
+        var aceTheme = $('.selectpicker').val();
+        console.log(aceTheme);
+        socket.emit('appSettings', {"aceTheme": aceTheme});
+        return false;
+
+      });
+
+      $('#adminUpdate').click(function (event) {
+        var port = $('#port').val(),
+        debug = $('#debug').val(),
+        help = $('#help').val(),
+        uploads = $('#uploads').val(),
+        exportTo = $('#exportTo').val(),
+        audio = $('#audio').val(),
+        login = $('#login').val(),
+        minifyOutput = $('#minifyOutput').val();
+        //console.log(toSend)
+        socket.emit('adminSettings', {
+          "port": port,
+          "debug": debug,
+          "help":help,
+          "uploads":uploads,
+          "exportTo":exportTo,
+          "audio":audio,
+          "login":login,
+          "minifyOutput":minifyOutput
+        });
+        return false;
+
+      });
+      socket.addEventListener("changePassword", function (i) {
+        showtoast(i);
+        {% if config.app.audio %}
+        createjs.Sound.play("success");
+        {% endif %}
+        console.log(i);
+      });
+
+      socket.addEventListener("appSettings", function (i) {
+        showtoast('Success');
+        {% if config.app.audio %}
+        createjs.Sound.play("success");
+        {% endif %}
+        console.log(i);
+        $("#aceTheme").val(i.aceTheme);
+      });
+
+      socket.addEventListener("adminSettings", function (i) {
+        showtoast(i);
+        {% if config.app.audio %}
+        createjs.Sound.play("success");
+        {% endif %}
+        console.log(i);
+      });
+    </script>
+  {% endblock %}

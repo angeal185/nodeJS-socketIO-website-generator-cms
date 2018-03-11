@@ -1,0 +1,262 @@
+{
+    "app": {
+        "port": 3000,
+        "uploads": "./admin/public/uploads",
+        "exportTo": "./dist/",
+        "debugToolbar": false,
+        "help": true,
+        "audio": false,
+        "login": false,
+        "minifyOutput": false
+    },
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "$2a$10$.DJl.uk3asGZ0aCnEaP8lekVEgkxf.wbTQsTApGwzI0cs7wDZ1XBy"
+        }
+    ],
+    "adminNav": [
+        "dashboard",
+        "upload",
+        "editor",
+        "settings"
+    ],
+    "skeleton": "skeleton",
+    "extentions": [
+        ".html",
+        ".pug"
+    ],
+    "output":[
+      "none",
+      "minify",
+      "beautify"
+    ],
+    "radio": [
+        {
+            "name": "Elements",
+            "id": "modeBlock",
+            "value": "block"
+        },
+        {
+            "name": "Content",
+            "id": "modeContent",
+            "value": "content"
+        },
+        {
+            "name": "Details",
+            "id": "modeStyle",
+            "value": "styling"
+        }
+    ],
+    "headBtn": [
+        {
+            "href": "/admin/dashboard",
+            "id": "toAdmin",
+            "name": "Admin"
+        },
+        {
+            "href": "#",
+            "id": "clearScreen",
+            "name": "Empty Page"
+        },
+        {
+            "href": "#exportModal",
+            "id": "exportPage",
+            "name": "Export"
+        },
+        {
+            "href": "#",
+            "id": "savePage",
+            "name": "Up to date"
+        }
+    ],
+    "loader": {
+        "img": "images/loading.gif",
+        "msg": "Loading elements..."
+    },
+    "modals": [
+        {
+            "divId": "deleteBlock",
+            "dialogue": "Are you sure you want to delete this block?",
+            "btnId": "deleteBlockConfirm",
+            "btnLbl": "Delete"
+        },
+        {
+            "divId": "resetBlock",
+            "dialogue": "Are you sure you want to reset this block?",
+            "btnId": "resetBlockConfirm",
+            "btnLbl": "Reset"
+        },
+        {
+            "divId": "deleteAll",
+            "dialogue": "Are you sure you want to remove this page?",
+            "btnId": "deleteAllConfirm",
+            "btnLbl": "Delete"
+        },
+        {
+            "divId": "deletePage",
+            "dialogue": "Are you sure you want to delete this entire page?",
+            "btnId": "deletePageConfirm",
+            "btnLbl": "Delete"
+        }
+    ],
+    "styleLnk": [
+        {
+            "href": "tab1",
+            "id": "",
+            "name": "Style"
+        },
+        {
+            "href": "link_Tab",
+            "id": "link_Link",
+            "name": "Link"
+        },
+        {
+            "href": "image_Tab",
+            "id": "img_Link",
+            "name": "Image"
+        },
+        {
+            "href": "icon_Tab",
+            "id": "icon_Link",
+            "name": "Icons"
+        },
+        {
+            "href": "video_Tab",
+            "id": "video_Link",
+            "name": "Video"
+        }
+    ],
+    "sideButtons": [
+        {
+            "id": "cloneElementButton",
+            "name": "Clone"
+        },
+        {
+            "id": "resetStyleButton",
+            "name": "Reset"
+        },
+        {
+            "id": "removeElementButton",
+            "name": "Remove"
+        }
+    ],
+    "elements": [
+        "navbar-1",
+        "navbar-2",
+        "navbar-3",
+        "navbar-4",
+        "navbar-5",
+        "navbar-6",
+        "navbar-7",
+        "navbar-8",
+        "navbar-9",
+        "intro-1",
+        "intro-2",
+        "intro-3",
+        "intro-4",
+        "intro-5",
+        "intro-6",
+        "header1",
+        "header2",
+        "header3",
+        "header4",
+        "header5",
+        "header6",
+        "header7",
+        "header8",
+        "header9",
+        "header10",
+        "service1",
+        "service2",
+        "service3",
+        "service4",
+        "service5",
+        "service6",
+        "service7",
+        "service8",
+        "about-1",
+        "about-2",
+        "about-3",
+        "about-4",
+        "about-5",
+        "content-1",
+        "content-2",
+        "content-3",
+        "content-4",
+        "content-5",
+        "content-6",
+        "content-7",
+        "content-8",
+        "content-9",
+        "content-10",
+        "content-11",
+        "login",
+        "register",
+        "404",
+        "portfolio-1",
+        "portfolio-2",
+        "portfolio-3",
+        "blog-1",
+        "blog-2",
+        "post-1",
+        "pricing-1",
+        "pricing-2",
+        "pricing-3",
+        "pricing-4",
+        "partners-1",
+        "partners-2",
+        "contact-1",
+        "contact-2",
+        "contact-3",
+        "footer-1",
+        "footer-2",
+        "footer-3",
+        "footer-4",
+        "footer-5",
+        "footer-6",
+        "footer-7",
+        "footer-8",
+        "grid1",
+        "grid2",
+        "grid3",
+        "grid4",
+        "grid5",
+        "grid6"
+    ],
+    "aceThemes": [
+        "ambiance",
+        "chaos",
+        "chrome",
+        "clouds_midnight",
+        "clouds",
+        "cobalt",
+        "crimson_editor",
+        "dawn",
+        "dreamweaver",
+        "eclipse",
+        "github",
+        "idle_fingers",
+        "katzenmilch",
+        "kr_theme",
+        "kuroir",
+        "merbivore_soft",
+        "merbivore",
+        "mono_industrial",
+        "monokai",
+        "pastel_on_dark",
+        "solarized_dark",
+        "solarized_light",
+        "terminal",
+        "textmate",
+        "tomorrow_night",
+        "tomorrow_night_blue",
+        "tomorrow_night_bright",
+        "tomorrow_night_eighties",
+        "tomorrow",
+        "twilight",
+        "vibrant_ink",
+        "xcode"
+    ]
+}

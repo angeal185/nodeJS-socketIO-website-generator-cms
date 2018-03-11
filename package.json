@@ -1,0 +1,32 @@
+{
+  "name": "nodeJS-socketIO-website-generator-cms",
+  "version": "1.0.0",
+  "description": "website generator cms created with nodeJS socketIO express and jquery",
+  "main": "admin/app/bin/socketIO",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ben eaves",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "beautify": "0.0.8",
+    "chalk": "^2.3.0",
+    "clean-css": "^4.1.9",
+    "connect-ensure-login": "^0.1.1",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "html2pug": "^2.0.1",
+    "nunjucks": "^3.0.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.0.4",
+    "socketio-file-upload": "^0.6.0",
+    "uglify-js": "^3.3.10"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.1.0",
+    "require-dir": "^1.0.0"
+  }
+}

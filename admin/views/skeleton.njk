@@ -1,0 +1,24 @@
+{% import "macros/macros.njk" as macro %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{title}}</title>
+		{{macro.css(s="fonts")}}
+		{{macro.css(s="bootstrap.min")}}
+		{{macro.css(s="styles")}}
+		
+	</head>
+	<body>
+	   <div id="page" class="page">
+  {% block content %}{% endblock %}
+    </div>
+    {{macro.js(s="jquery.min")}}
+    {{macro.js(s="bootstrap.min")}}
+		{{macro.js(s="SmoothScroll")}}
+		{{macro.js(s="jquery.sticky")}}
+		{{macro.js(s="custom")}}
+		{% block scripts %}{% endblock %}
+  </body>
+</html>

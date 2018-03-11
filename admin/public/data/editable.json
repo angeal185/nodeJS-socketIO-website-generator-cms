@@ -1,0 +1,15 @@
+{
+  "editableContent": ["p", "h1", "h2", "h3", "h4", ".btn", ".header-1", ".header-2", ".header-3", ".header-4", ".header-5", ".header-6", ".header-7", ".header-8", ".header-9", ".header-10", ".welcome-1 .p1", ".btn-1", ".welcome-1 h1", ".navbar-nav > li > a", ".top-bar .left", ".top-bar .left i", ".left > span", ".welcome-3 .right .circle", ".side-menu li a", ".sidenav", ".bottomh1", ".tagline", ".b-btn", ".c-btn", "nav a", "nav > span", ".header-9 > .navbar", ".name", ".position", ".r-btn", ".text", ".heading", ".rate", ".shop-btn", ".txt", ".txt2", ".input-group-addon", ".recover", ".heading1", ".heading2", ".links li a", ".filter li a", ".number", ".by", ".category", ".date", ".r-more", "blockquote", ".tags", ".socials", ".reply-btn", ".plan", ".purchase", ".table-body li", "address", ".snd-btn", ".posts li a", ".navbar-6 .right a", ".navbar-6 .right strong", ".btn-2", ".intro-3 .right span", ".intro-3 .right .reviews", ".submit", ".intro-5 .l-text", ".intro-5 .under-rate", ".intro-5 .l-text .r-color", ".join"],
+  "editableItemOptions": {
+    "nav a : font-weight": ["400", "700"],
+    "a.btn : border-radius": ["0px", "4px", "10px"],
+    "img : border-style": ["none", "dotted", "dashed", "solid"],
+    "img : border-width": ["1px", "2px", "3px", "4px"],
+    "h1 : font-family": ["default", "Lato", "Helvetica", "Arial", "Times New Roman"],
+    "h2 : font-family": ["default", "Lato", "Helvetica", "Arial", "Times New Roman"],
+    "h3 : font-family": ["default", "Lato", "Helvetica", "Arial", "Times New Roman"],
+    "h4 : font-family": ["default", "Lato", "Helvetica", "Arial", "Times New Roman"],
+    "p : font-family": ["default", "Lato", "Helvetica", "Arial", "Times New Roman"],
+    ".info : border-radius": ["1px", "2px", "3px", "4px", "5px"]
+  }
+}
